@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">PrivacyTest</string>
     <string name="image_desc">photo</string>
+    <string name="button_read_sms">READ SMS MESSAGES 短信</string>
+    <string name="button_album">GET ALBUM 相册</string>
+    <string name="button_location">GET LOCATION 定位</string>
+    <string name="button_photo">TAKE FULL PHOTO 拍照</string>
+    <string name="button_thumbnail">TAKE THUMBNAIL 缩略图</string>
+    <string name="button_imei">GET IMEI DEVICEID&#8230;</string>
+    <string name="button_contacts">Get Contacts 通讯录</string>
+    <string name="button_calllog">Get Call Log 通话记录</string>
 </resources>

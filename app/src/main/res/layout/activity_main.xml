@@ -13,7 +13,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:onClick="click_getCallLog"
-        android:text="Get Contact 通话记录"
+        android:text="@string/button_calllog"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,7 +24,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:onClick="click_getContacts"
-        android:text="Get Contacts 通讯录"
+        android:text="@string/button_contacts"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_calllog" />
 
@@ -36,7 +36,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:onClick="click_getImei"
-        android:text="GET IMEI DEVICEID..."
+        android:text="@string/button_imei"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_calllog"
         app:layout_constraintTop_toTopOf="parent" />
@@ -48,7 +48,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
         android:onClick="click_startThumbnail"
-        android:text="TAKE THUMBNAIL 缩略图"
+        android:text="@string/button_thumbnail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_takephoto" />
 
@@ -59,7 +59,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
         android:onClick="click_takePhoto"
-        android:text="TAKE FULL PHOTO 拍照"
+        android:text="@string/button_photo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_imei" />
 
@@ -77,7 +77,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:onClick="click_getLocation"
-        android:text="GET LOCATION 定位"
+        android:text="@string/button_location"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_contacts" />
 
@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="GET ALBUM 相册"
+        android:text="@string/button_album"
         android:onClick="click_getAlbum"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_location" />
@@ -99,7 +99,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
         android:onClick="click_getSms"
-        android:text="READ SMS MESSAGES 短信"
+        android:text="@string/button_read_sms"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_thumbnail" />
 
