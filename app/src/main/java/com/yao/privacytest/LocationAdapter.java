@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LocationAdapter implements Adapter {
-    final static String TAG = "LocationAdapter";
+    //final static String TAG = "LocationAdapter";
     private static Context context = null;
 
     //获取定位服务
@@ -54,7 +54,7 @@ public class LocationAdapter implements Adapter {
 
         Location bestLocation = null;
         String bestProvider = null;
-        Log.i(TAG, "==Get " + list.size() + " location providers==");
+        //Log.i(TAG, "==Get " + list.size() + " location providers==");
 
         for (String s : list) {
             Location location = locationManager.getLastKnownLocation(s); // 通过GPS获取位置
@@ -94,19 +94,19 @@ public class LocationAdapter implements Adapter {
         @Override
         public void onStatusChanged(String provider, int status,
                                     Bundle extras) {
-            Log.e(TAG, "===== [LocationListener.onStatusChanged] provider " + provider + " status " + status + " extras " + extras.toString() + " =====");
+            //Log.e(TAG, "===== [LocationListener.onStatusChanged] provider " + provider + " status " + status + " extras " + extras.toString() + " =====");
         }
         @Override
         public void onProviderEnabled(String provider) {
-            Log.e(TAG, "===== [LocationListener.onProviderEnabled] provider " + provider + " =====");
+            //Log.e(TAG, "===== [LocationListener.onProviderEnabled] provider " + provider + " =====");
         }
         @Override
         public void onProviderDisabled(String provider) {
-            Log.e(TAG, "===== [LocationListener.onProviderDisabled] provider " + provider + " =====");
+            //Log.e(TAG, "===== [LocationListener.onProviderDisabled] provider " + provider + " =====");
         }
         @Override
         public void onLocationChanged(Location location) {
-            Log.e(TAG, "===== [LocationListener.onLocationChanged] location altitude " + location.getAltitude() + " latitude " + location.getLatitude() + " longitude " + location.getLongitude() + " =====");
+            //Log.e(TAG, "===== [LocationListener.onLocationChanged] location altitude " + location.getAltitude() + " latitude " + location.getLatitude() + " longitude " + location.getLongitude() + " =====");
         }
     };
 

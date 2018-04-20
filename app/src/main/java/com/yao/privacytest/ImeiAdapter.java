@@ -16,7 +16,7 @@ import static android.content.Context.TELEPHONY_SERVICE;
 
 public class ImeiAdapter implements Adapter {
 
-    final private static String TAG = "ImeiAdapter";
+    //final private static String TAG = "ImeiAdapter";
     private static Context context = null;
     private static TelephonyManager tm ;
     private List<CallLogAdapter.CallLogBean> callLogs;
@@ -84,7 +84,7 @@ public class ImeiAdapter implements Adapter {
             list.add("Serial Number    :" + getSerialNumber());
             list.add("Firmware Version :" + getFirmVersion());
         } catch (Exception e) {
-            Log.e(TAG, "Exception: " + e.getMessage());
+            //Log.e(TAG, "[Exception][getDeviceId()] " + e.getMessage());
             String x = e.getLocalizedMessage();
             if (x.lastIndexOf("requires") > 0)
                 x = x.substring(x.lastIndexOf("requires"));
@@ -111,10 +111,10 @@ public class ImeiAdapter implements Adapter {
             String Imei_2 = (String) md.invoke(mtm,1);
             String Imsi_1 = (String) ms.invoke(mtm,0);
             String Imsi_2 = (String) ms.invoke(mtm,1);
-            Log.w(TAG, "Imei 1 " + Imei_1 + " Imei 2 " + Imei_2 + " Imsi 1 " + Imsi_1 + " Imsi 2 " + Imsi_2 );
+            //Log.w(TAG, "Imei 1 " + Imei_1 + " Imei 2 " + Imei_2 + " Imsi 1 " + Imsi_1 + " Imsi 2 " + Imsi_2 );
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e(TAG, "[initQualcommDoubleSim()] Exception: " + e.getCause());
+            //Log.e(TAG, "[initQualcommDoubleSim()] Exception: " + e.getCause());
             return false;
         }
         return true;
@@ -152,7 +152,7 @@ public class ImeiAdapter implements Adapter {
 
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e(TAG, "[initMtkDoubleSim()] Exception: " + e.getCause());
+            //Log.e(TAG, "[initMtkDoubleSim()] Exception: " + e.getCause());
             return false;
         }
 
@@ -165,13 +165,13 @@ public class ImeiAdapter implements Adapter {
         boolean isMtkCpu = initMtkDoubleSim();
         if (isGaoTongCpu) {
             // 高通芯片双卡
-            Log.w(TAG, "GaoTong Two Sim Card");
+            //Log.w(TAG, "GaoTong Two Sim Card");
         } else if (isMtkCpu) {
             // MTK芯片双卡
-            Log.w(TAG, "MTK Two Sim Card");
+            //Log.w(TAG, "MTK Two Sim Card");
         } else {
             //普通单卡手机
-            Log.w(TAG, "Normal One Sim Card");
+            //Log.w(TAG, "Normal One Sim Card");
         }
     }
 

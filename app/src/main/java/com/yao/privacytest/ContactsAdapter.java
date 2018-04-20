@@ -21,7 +21,7 @@ import java.util.ListIterator;
 
 public class ContactsAdapter implements  Adapter{
 
-    final private static String TAG = "ContactsAdapter";
+    //final private static String TAG = "ContactsAdapter";
     private static Context context = null;
 
     ContactsAdapter(Context context) {
@@ -57,12 +57,12 @@ public class ContactsAdapter implements  Adapter{
                 }
                 sb.append(name + "\t\t" + phone);
                 cursor1.close();
-                Log.i(TAG, sb.toString());
+                //Log.i(TAG, sb.toString());
                 list.add(sb.toString());
             }
             cursor.close();
         } catch (Exception e) {
-            Log.e(TAG, "Exception: " + e.getMessage());
+            //Log.e(TAG, "[Exception][getContactsList()] " + e.getMessage());
             String x = e.getLocalizedMessage();
             x = x.substring(x.lastIndexOf("requires"));
             list.add(x);

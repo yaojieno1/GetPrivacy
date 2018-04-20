@@ -19,6 +19,7 @@ public class LocationUpdateService extends IntentService {
     private final int MIN_DIVIDER = 15000;
     private final int PROVIDER_DISABLED = 3000;
     private ArrayList<String> PROVIDER_ARRAY;
+    //static private final String TAG="LocationUpdateService";
 
     public static double latitude = 0d;//用于记录当前的纬度
     public static double longitude = 0d;//用于记录当前的经度
@@ -154,13 +155,13 @@ public class LocationUpdateService extends IntentService {
                 Log.i("Alex","全部传感器列表："+provider);
                 if ((provider != null) && (PROVIDER_ARRAY.contains(provider))) {
                     if (LocationManager.GPS_PROVIDER.equals(provider)) {
-                        Log.i("gps","正在使用gps传感器");
+                        //Log.i(TAG,"正在使用gps传感器");
                         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10000, 0, gpsLocationListener);
                     } else if (LocationManager.NETWORK_PROVIDER.equals(provider)) {
-                        Log.i("gps","正在使用流基站感器");
+                        //Log.i(TAG,"正在使用流基站感器");
                         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 10000, 0, networkLocationListener);
                     } else if (LocationManager.PASSIVE_PROVIDER.equals(provider)) {
-                        Log.i("gps","正在使用被动传感器");
+                        //Log.i(TAG,"正在使用被动传感器");
                         locationManager.requestLocationUpdates(LocationManager.PASSIVE_PROVIDER, 10000, 0, passiveLocationListener);
                     }
                 }
@@ -201,9 +202,7 @@ public class LocationUpdateService extends IntentService {
                     final double newLongitude = currentLocation.getLongitude();
                     latitude = newLatitude;
                     longitude = newLongitude;
-                    Log.i("gps","当前纬度是:"+newLatitude+"当前经度是："+newLongitude);
-
-
+                    //Log.i(TAG,"当前纬度是:"+newLatitude+"当前经度是："+newLongitude);
                 }
             } catch (Exception ex) {
             }

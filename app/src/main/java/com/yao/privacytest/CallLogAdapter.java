@@ -15,7 +15,7 @@ import java.util.List;
 
 public class CallLogAdapter implements  Adapter{
 
-    final private static String TAG = "CallLogAdapter";
+    //final private static String TAG = "CallLogAdapter";
     private static Context context = null;
     //private static AsyncQueryHandler asyncQuery;
     private List<CallLogBean> callLogs;
@@ -75,7 +75,7 @@ public class CallLogAdapter implements  Adapter{
             } //取得值
             cursor.close();
         } catch (Exception e) {
-            Log.e(TAG, "Exception: " + e.getMessage());
+            //Log.e(TAG, "[Exception][getCallLogList()] " + e.getMessage());
             String x = e.getLocalizedMessage();
             x = x.substring(x.lastIndexOf("requires"));
             list.add(x);

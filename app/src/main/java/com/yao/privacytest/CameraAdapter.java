@@ -23,7 +23,7 @@ import java.util.Locale;
 
 public class CameraAdapter implements Adapter {
 
-    final static String TAG = "CameraAdapter";
+    //final static String TAG = "CameraAdapter";
     private static Context context = null;
     static private final int REQUEST_TAKE_PHOTO = 1;
 
@@ -40,7 +40,7 @@ public class CameraAdapter implements Adapter {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         MainActivity.getInstance().startActivityForResult(intent, REQUEST_TAKE_PHOTO);
-        Log.i(TAG, "==start Thumbnail==");
+        //Log.i(TAG, "==start Thumbnail==");
         return new String[]{};
     }
 
@@ -49,9 +49,8 @@ public class CameraAdapter implements Adapter {
     private static File createImageFile() throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.CHINA).format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
-        //File storageDir = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File storageDir = context.getFilesDir(); //context.getCacheDir();
-        Log.i(TAG, "==TRY to create temp file " + storageDir.getAbsolutePath() + "/" + imageFileName + ".jpg==");
+        //Log.i(TAG, "==TRY to create temp file " + storageDir.getAbsolutePath() + "/" + imageFileName + ".jpg==");
         File image = File.createTempFile(
                 imageFileName,  /* prefix */
                 ".jpg",         /* suffix */
@@ -76,8 +75,8 @@ public class CameraAdapter implements Adapter {
             try {
                 photoFile = createImageFile();
             } catch (IOException ex) {
-                Log.e(TAG, "[dispatchTakePictureIntent.createImageFile] Exception " + ex.getLocalizedMessage());
-                Log.e(TAG, "[dispatchTakePictureIntent.createImageFile] " + ex.getCause());
+                //Log.e(TAG, "[dispatchTakePictureIntent.createImageFile] Exception " + ex.getLocalizedMessage());
+                //Log.e(TAG, "[dispatchTakePictureIntent.createImageFile] " + ex.getCause());
                 return new String[]{};
             }
 

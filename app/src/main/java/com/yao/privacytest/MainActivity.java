@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -27,7 +28,7 @@ public class MainActivity extends BaseActivity {
     ListView ContactsLv;
     Adapter adapter;
     static MainActivity instance;
-    static String TAG = "MainActivity";
+    //private final static String TAG = "MainActivity";
     List<Bitmap> imageList = new ArrayList<Bitmap>();
     LocationAdapter la;
     CameraAdapter   ca ;
@@ -162,6 +163,22 @@ public class MainActivity extends BaseActivity {
         });
     }
 
+    public void click_recordChange(View view) {
+        adapter = new RecordAdapter(this);
+        final Button button = (Button)findViewById(R.id.button_record);
+        requestPermission(startRec, RECORD_PERMISSION, new Runnable() {
+            @Override
+            public void run() {
+                ContactsLv.setAdapter(new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1,  RecordAdapter.RecordProcess(button)));
+            }
+        }, new Runnable() {
+            @Override
+            public void run() {
+                ContactsLv.setAdapter(new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, RecordAdapter.RecordDenied()));
+            }
+        });
+    }
+
     public static MainActivity getInstance() {
         return instance;
     }
@@ -176,6 +193,7 @@ public class MainActivity extends BaseActivity {
         ia = null;
         cla = null;
         csa = null;
+        adapter = null;
         ContactsLv.setAdapter(null);
     }
 
@@ -199,8 +217,8 @@ public class MainActivity extends BaseActivity {
                         imageList.add(bitmap);
                         ContactsLv.setAdapter(new MyImageListAdapter());
                     } catch (Exception ex) {
-                        Log.e(TAG, "[Exception]" + ex.getLocalizedMessage());
-                        Log.e(TAG, "[Exception]" + ex.getCause());
+                        //Log.e(TAG, "[Exception][onActivityResult()]" + ex.getLocalizedMessage());
+                        //Log.e(TAG, "[Exception]" + ex.getCause());
                     }
                 }
             }
@@ -209,25 +227,25 @@ public class MainActivity extends BaseActivity {
 
         if (requestCode != CameraAdapter.getRequestCode()
                 && resultCode != RESULT_OK) {
-            Log.e(TAG, "==Take Camera Failed!==");
+            //Log.e(TAG, "==Take Camera Failed!==");
             return;
         }
 
-        Log.i(TAG, "==requestCode " + requestCode + " resultCode " + resultCode + " RESULT_OK " + RESULT_OK + "==") ;
+        //Log.i(TAG, "==requestCode " + requestCode + " resultCode " + resultCode + " RESULT_OK " + RESULT_OK + "==") ;
 
         if (data != null) {
             Bundle extras = data.getExtras();
             if (extras != null) {
                 //Bitmap photo = extras.getParcelable("data");
                 Bitmap bmp = (Bitmap) extras.getParcelable("data");
-                Log.i(TAG, "== width " + bmp.getWidth() + " height " + bmp.getHeight() + "==");
+                //Log.i(TAG, "== width " + bmp.getWidth() + " height " + bmp.getHeight() + "==");
                 imageList.clear();
                 imageList.add(bmp);
                 ContactsLv.setAdapter(new MyImageListAdapter());
             }
         } else {
             Bitmap bmp = BitmapFactory.decodeFile(MainActivity.photoPath);
-            Log.i(TAG, "== width " + bmp.getWidth() + " height " + bmp.getHeight() + "==");
+            //Log.i(TAG, "== width " + bmp.getWidth() + " height " + bmp.getHeight() + "==");
             imageList.clear();
             imageList.add(bmp);
             ContactsLv.setAdapter(new MyImageListAdapter());
@@ -272,6 +290,7 @@ public class MainActivity extends BaseActivity {
     public static final String CAMERA_PERMISSION = Manifest.permission.CAMERA;
     public static final String LOCATION_PERMISSION = Manifest.permission.ACCESS_FINE_LOCATION;
     public static final String SMS_PERMISSION = Manifest.permission.READ_SMS;
+    public static final String RECORD_PERMISSION = Manifest.permission.RECORD_AUDIO;
     public static final int readContactRequest = 1;
     public static final int readCallLog = 1;
     public static final int readImei = 1;
@@ -279,5 +298,6 @@ public class MainActivity extends BaseActivity {
     public static final int startThumbnail = 1;
     public static final int getLocation = 1;
     public static final int getSms = 1;
+    public static final int startRec = 1;
 
 }

@@ -9,4 +9,7 @@
     <string name="button_imei">GET IMEI DEVICEID&#8230;</string>
     <string name="button_contacts">Get Contacts 通讯录</string>
     <string name="button_calllog">Get Call Log 通话记录</string>
+    <string name="button_startrec">Start Record 开始录音</string>
+    <string name="button_stoprec">Stop Record 停止录音</string>
+    <string name="button_stopplay">Stop Play 停止播放</string>
 </resources>

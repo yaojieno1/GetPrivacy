@@ -13,7 +13,7 @@ import java.util.List;
 
 public class SmsAdapter implements Adapter {
 
-    final private static String TAG = "ContactsAdapter";
+    //final private static String TAG = "ContactsAdapter";
     private static Context context = null;
 
     SmsAdapter(Context context) {
@@ -90,8 +90,8 @@ public class SmsAdapter implements Adapter {
                 list.add("no sms found!");
             } // end if
        } catch (Exception ex) {
-            Log.e(TAG, "[Exception][getSms]" + ex.getMessage());
-            Log.e(TAG, "[Exception]" +ex.getCause());
+            //Log.e(TAG, "[Exception][getSms]" + ex.getMessage());
+            //Log.e(TAG, "[Exception]" +ex.getCause());
             list.add("[Exception]" + ex.getLocalizedMessage());
         }
 
