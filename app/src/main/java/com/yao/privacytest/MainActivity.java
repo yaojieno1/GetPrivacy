@@ -179,6 +179,22 @@ public class MainActivity extends BaseActivity {
         });
     }
 
+    public void click_flashChange(View view) {
+        adapter = new FlashAdapter(this);
+        final Button button = (Button)findViewById(R.id.button_flash);
+        requestPermission(startRec, FLASH_PERMISSION, new Runnable() {
+            @Override
+            public void run() {
+                ContactsLv.setAdapter(new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1,  FlashAdapter.FlashProcess(button)));
+            }
+        }, new Runnable() {
+            @Override
+            public void run() {
+                ContactsLv.setAdapter(new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, FlashAdapter.FlashDenied()));
+            }
+        });
+    }
+
     public static MainActivity getInstance() {
         return instance;
     }
@@ -291,6 +307,7 @@ public class MainActivity extends BaseActivity {
     public static final String LOCATION_PERMISSION = Manifest.permission.ACCESS_FINE_LOCATION;
     public static final String SMS_PERMISSION = Manifest.permission.READ_SMS;
     public static final String RECORD_PERMISSION = Manifest.permission.RECORD_AUDIO;
+    public static final String FLASH_PERMISSION = Manifest.permission.CAMERA;
     public static final int readContactRequest = 1;
     public static final int readCallLog = 1;
     public static final int readImei = 1;

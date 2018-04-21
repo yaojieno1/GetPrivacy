@@ -12,4 +12,6 @@
     <string name="button_startrec">Start Record 开始录音</string>
     <string name="button_stoprec">Stop Record 停止录音</string>
     <string name="button_stopplay">Stop Play 停止播放</string>
+    <string name="button_openflash">Open Flash 闪光灯</string>
+    <string name="button_closeflash">Close Flash 闪光灯</string>
 </resources>
